@@ -11,16 +11,16 @@ import (
 )
 
 func main() {
-	var port int = *flag.Int("Port", 8090, "Listen on this port")
-	var help bool = *flag.Bool("Help", false, "Print help")
+	var port *int = flag.Int("Port", 8090, "Listen on this port")
+	var help *bool = flag.Bool("Help", false, "Print help")
 	flag.Parse()
-	if help {
+	if *help {
 		flag.CommandLine.Usage()
 		os.Exit(1)
 	}
 	http.HandleFunc("/", handler)
-	fmt.Printf("Starting listener on :%d\n", port)
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
+	fmt.Printf("Starting listener on :%d\n", *port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), nil))
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
