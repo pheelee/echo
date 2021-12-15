@@ -14,6 +14,10 @@ Usage of ./echo:
         Listen on this port (default 8090)
 ```
 
+## AAD App Proxy Configuration
+
+![AAD Config](aad-headersso-config.png)
+
 ## Sample Response
 
 ```
